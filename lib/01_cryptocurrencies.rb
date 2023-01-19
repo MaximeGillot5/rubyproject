@@ -23,14 +23,31 @@ def crypto_min(min)
 end
 
 
-def crypto_sous
-    tab_trois.each { | value |
-    value_six = value
-    if value_six < 6000
-        value_six = value_six + 1
+def sous
+    puts "Vous pouvez retrouver les devises dont le cours est inférieur à 6000 : "
+tab_trois.each do |nom, prix|
+    prix = prix.to_f
+    if prix < 6000
+        print nom + " "
     end
-    }
-    puts "Voici le nombre de @ en majuscule : " +value_six
+end
 end
 
-crypto_sous(tab_trois)
+def plus
+    puts "Voici les devises qui valent plus de 6000 : "
+    tab_trois.each do |nom, prix|
+        prix = prix.to_f
+        if prix > 6000
+            print nom + " "
+        end
+    end
+end
+
+def perform(tab_trois)
+    tab_trois
+    crypto_max_value(tab_trois)
+    crypto_min(tab_trois)
+    sous
+    plus
+end
+perform(tab_trois)
